@@ -1,10 +1,19 @@
 .nav {
     grid-area:n;
     background-color:#999;
+    padding: 20px;
   }
-  .item{
+a {
+    text-decoration: none;
+}
+.item {
+    margin-bottom: 10px;
+}
+  .item a{
       color:#fff;
+      font-family: 'Roboto', sans-serif;
+      cursor:pointer;
   }  
-  .item.active {
+  .item a.active {
       color:#444;
   }

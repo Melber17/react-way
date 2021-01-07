@@ -6,7 +6,8 @@ export const Post = (props) => {
       <div className={s.item}>
         <img src="https://habrastorage.org/webt/5f/5c/79/5f5c7971e8fbe454808661.jpeg" alt="avatar" />
           {props.message}
+
       </div>
-      <span>Like</span>
+      <span>Like {props.likesCount}</span>
     </div>    
 )}

@@ -9,17 +9,21 @@ img {
     max-height: 100%;
 }
 
+body {
+    background-color: aliceblue;
+}
+
 .app-wrapper {
     background: azure;
     display: grid;
-    max-width: 1200px;
-    margin: 0 auto;
+    max-width:1200px;
     grid-template-areas: "h h " "n c ";
     grid-template-rows: 60px 1fr;
     grid-template-columns: 2fr 10fr;
+    margin: 0 auto;
+
     /*grid-gap: 10px; */
 }
-
 .app-wrapper-content {
     grid-area: c;
     background-color: cornflowerblue;

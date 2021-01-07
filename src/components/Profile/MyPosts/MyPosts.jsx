@@ -1,22 +1,27 @@
 import React from 'react';
-import { Post } from '../Post/Post';
+import {Post} from '../Post/Post';
 import s from "./MyPosts.module.css";
-export const MyPosts = () => {
-  return <div>
-    <div>
-      My posts
-      <div>
-        <textarea></textarea>'
-        <button>Add post</button>
-        <button>Remove</button>
-      </div>
-      <div className={s.posts}>
-        <Post message="What's up?" />
-        <Post message="Nothing more" />
-      </div>
-    </div>
-  </div>
 
-  
-  
+export const MyPosts = (props) => {
+    let postsElements =
+        props.posts.map(p => <Post message={p.message} likesCount={p.likesCount}/>);
+
+    return <div className={s.postsBlock}>
+        <div>
+            <h3 className={s.title}>My posts</h3>
+            <div>
+                <div>
+                    <textarea className={s.TextInput}></textarea>
+                </div>
+                <div className={s.addButtonWrapper}>
+                    <button className={s.addButton}>Add post</button>
+                </div>
+            </div>
+            <div className={s.posts}>
+                {postsElements}
+            </div>
+        </div>
+    </div>
+
+
 }
