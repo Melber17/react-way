@@ -9,16 +9,14 @@ export const MyPosts = (props) => {
 
     let newPostElement = React.createRef();
 
-    let addPost = () => {
-        props.dispatch(addPostActionCreator());
-        debugger;
+    let onAddPost = () => {
+        props.addPost();
     }
 
     let onPostChange = () => {
 
         let text = newPostElement.current.value;
-        let action = updateNewPostTextActionCreator(text);
-        props.dispatch(action);
+        props.updateNewPostText(text)
     }
 
     return <div className={s.postsBlock}>
@@ -32,7 +30,7 @@ export const MyPosts = (props) => {
                               value={props.newPostText}/>
                 </div>
                 <div className={s.addButtonWrapper}>
-                    <button onClick={addPost} className={s.addButton}>Add post</button>
+                    <button onClick={onAddPost} className={s.addButton}>Add post</button>
                 </div>
             </div>
             <div className={s.posts}>
