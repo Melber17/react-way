@@ -1,5 +1,15 @@
   .header {
     grid-area: h;
     background-color:#444;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
-
+.coverLogin {
+  margin-right:15px;
+  color:#fff;
+}
+.loginBlock {
+    color:white;
+    font-weight: bold;
+}
