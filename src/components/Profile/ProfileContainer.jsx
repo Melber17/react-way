@@ -2,7 +2,7 @@ import React from 'react';
 import {Profile} from "./Profile";
 import {connect} from "react-redux";
 import {getStatus, getUserProfile, updateStatus} from "../../redux/profile-reducer";
-import {Redirect, withRouter} from "react-router-dom";
+import {withRouter} from "react-router-dom";
 import {compose} from "redux";
 
 
@@ -10,9 +10,14 @@ import {compose} from "redux";
 
     componentDidMount() {
         let userId = this.props.match.params.userId
-        if(!userId) userId = 2;
-        this.props.getUserProfile(userId)
+        if(!userId) {
+            userId = this.props.authorizedUserId;
+           if(!userId) {
+               this.props.history.push("/login")
+           }
+        }
         this.props.getStatus(userId)
+        this.props.getUserProfile(userId)
     }
 
     render () {
@@ -26,7 +31,9 @@ import {compose} from "redux";
 
 let mapStateToProps = (state) => ({
     profile: state.profilePage.profile,
-    status: state.profilePage.status
+    status: state.profilePage.status,
+    authorizedUserId: state.auth.userId,
+    isAuth: state.auth.isAuth
 })
 
 export default compose(

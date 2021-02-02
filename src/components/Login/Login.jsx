@@ -5,6 +5,7 @@ import {required} from "../../utils/validators/validators";
 import {connect} from "react-redux";
 import {login} from "../../redux/auth-reducer";
 import {Redirect} from "react-router-dom";
+import style from "./../common/FormControls/FormsControls.module.scss"
 export const LoginForm = (props) => {
     return (
             <form onSubmit={props.handleSubmit}>
@@ -17,6 +18,10 @@ export const LoginForm = (props) => {
                 <div>
                     <Field component={Input} name={"remember me"} id={"check"} type={"checkbox"}/> <label for={"check"} >remember me</label>
                 </div>
+                {props.error && <div className={style.formSummaryError}>
+                    {props.error}
+                </div>
+                }
                 <div>
                     <button>Login</button>
                 </div>
