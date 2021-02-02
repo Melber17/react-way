@@ -8,10 +8,12 @@ export const Header = (props) => {
             src="https://www.apple.com/v/apple-events/home/n/images/overview/meta/og__fodnljjkwl6y.png?202011090231"
             alt="apple"/>
 
-            <div className={s.coverLogin} >
-                {props.isAuth ? props.login : <NavLink className={s.loginBlock} to={'/login'}>Login</NavLink>}
+        <div className={s.coverLogin}>
+            {props.isAuth
+                ? <div>{props.login} - <button onClick={props.logout}>Log out</button></div>
+                : <NavLink className={s.loginBlock} to={'/login'}>Login</NavLink>}
 
-            </div>
+        </div>
     </header>
 
 }
